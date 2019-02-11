@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "885461540036",
+    "firebase_url": "https://plantmaintenance-fb0f2.firebaseio.com",
+    "project_id": "plantmaintenance-fb0f2",
+    "storage_bucket": "plantmaintenance-fb0f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885461540036:android:18824593b7ce3de3",
+        "android_client_info": {
+          "package_name": "com.example.plantmaintenance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "885461540036-jpo52hlvqvtn7u8sbv0d6sc5u8r720lb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB59NJn-Kuh25gxv3FJZ80w7I2ZSL55pkw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
