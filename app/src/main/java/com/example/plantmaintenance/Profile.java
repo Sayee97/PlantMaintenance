@@ -22,12 +22,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Connection;
+import java.sql.SQLOutput;
+import java.sql.Statement;
+import android.os.AsyncTask;
+
 public class Profile extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth firebaseAuth;
 
     //view objects
     private TextView textViewUserEmail;
-    private Button buttonLogout,start;
+    private Button buttonLogout,start,saveSQL;
 
 
 
@@ -72,9 +77,11 @@ namePerson=(EditText)findViewById(R.id.name);
 loc=(EditText)findViewById(R.id.location);
 saveInfo=(Button)findViewById(R.id.save);
 databaseReference= FirebaseDatabase.getInstance().getReference();
+saveSQL=(Button)findViewById(R.id.saveSQL);
         //adding listener to button
         buttonLogout.setOnClickListener(this);
         saveInfo.setOnClickListener(this);
+        saveSQL.setOnClickListener(this);
 start.setOnClickListener(this);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -122,5 +129,91 @@ private void saveInformation(){
         if(v==start){
             startActivity(new Intent(this, Detect.class));
         }
+        if(v==saveSQL){
+
+            saveInformationSQL();
+
+        }
     }
+
+    private void saveInformationSQL() {
+        Doregister doregister = new Doregister();
+        doregister.execute("");
+
+
+}
+
+
+
+
+    public class Doregister extends AsyncTask<String,String,String>
+    {
+
+
+        String n1=namePerson.getText().toString().trim();
+        String l1=loc.getText().toString().trim();
+        String z="";
+        boolean isSuccess=false;
+        com.example.plantmaintenance.Connection c=new com.example.plantmaintenance.Connection();
+        //Connection con=connectionClass.CONN();
+
+        @Override
+        protected void onPreExecute() {
+
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            if(n1.trim().equals("")|| l1.trim().equals(""))
+                z = "Please enter all fields....";
+            else
+            {
+                try {
+                    Connection con=c.CONN();
+                   // com.example.plantmaintenance.Connection con=c.CONN();
+                    /*Connection con=c.CONN();*/
+
+                    if (con == null) {
+                        z = "Sayee Please check your internet connection";
+                    } else {
+
+                        String query="insert into personal values('"+n1+"','"+l1+"')";
+
+                        Statement stmt = con.createStatement();
+                        stmt.executeUpdate(query);
+
+                        z = "Register successfull";
+                        isSuccess=true;
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    isSuccess = false;
+                    z = "Exceptions"+ex;
+                }
+            }
+            return z;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+
+            Toast.makeText(getBaseContext(),""+z,Toast.LENGTH_LONG).show();
+
+
+            /*if(isSuccess) {
+                startActivity(new Intent(signup.this,HomePage.class));
+                Toast.makeText(getApplicationContext(),"SUCCESS REGISTER",Toast.LENGTH_LONG);
+            }
+
+
+            progressDialog.hide();*/
+        }
+    }
+
+
+
 }

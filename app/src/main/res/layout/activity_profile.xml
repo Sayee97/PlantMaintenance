@@ -40,6 +40,11 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Save SQL"
+            android:id="@+id/saveSQL"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="Start Maintenance"
             android:id="@+id/start"/>
