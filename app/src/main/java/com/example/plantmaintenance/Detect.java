@@ -36,7 +36,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Detect extends AppCompatActivity {
+public class
+Detect extends AppCompatActivity {
 CameraView cameraView;
 GraphicOverlay graphicOverlay;
 

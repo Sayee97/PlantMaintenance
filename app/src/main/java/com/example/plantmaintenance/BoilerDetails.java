@@ -26,6 +26,15 @@ public class BoilerDetails extends AppCompatActivity {
         String sessionId= getIntent().getStringExtra("boilerID");
         TextView t=(TextView)findViewById(R.id.boilerID);
         t.setText("Boiler: "+sessionId);
+        Button checkHumidityX2X=(Button)findViewById(R.id.checkHumidityX2X);
+        checkHumidityX2X.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(getBaseContext(), InventoryX.class);
+
+                startActivity(intent1);
+            }
+        });
 
         Button checkInventory=(Button)findViewById(R.id.checkInventory);
         checkInventory.setOnClickListener(new View.OnClickListener() {

@@ -24,5 +24,11 @@
         android:layout_above="@id/checkInventory"
         android:id="@+id/checkHumidity"
         android:text="Check Humidity"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/checkHumidity"
+        android:id="@+id/checkHumidityX2X"
+        android:text="Check Humidity X2X"/>
 
 </RelativeLayout>

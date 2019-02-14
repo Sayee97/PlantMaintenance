@@ -11,9 +11,11 @@ public class Connection {
     String classs = "com.mysql.jdbc.Driver";
 
     String url = "jdbc:mysql://10.0.2.2/plantmaintenance";
+   // String url = "jdbc:mysql://localhost:8080/plantmaintenance";
     //127.0.0.1	 172.33.6.58 //10.0.2.2
     String un = "root";
     String password = "";
+    //https://stackoverflow.com/questions/40950062/how-to-connect-android-app-with-local-server-xampp
 
 
 
